@@ -1,0 +1,41 @@
+{
+  "name": "suitjs-lapel",
+  "homepage": "https://github.com/suitjs/lapel",
+  "authors": [
+    "Eduardo Dias da Costa <eduardo@thelaborat.org>",
+	"Gustavo Allebrandt <gustavoallebrandt@gmail.com>",
+  ],
+  "description": "Make your Suit even more fancier by adding Lapel web components.",
+  "main": ["deploy/js/lapel.js"],
+  "moduleType": [],
+  "keywords": [
+    "model",
+    "view",
+    "controller",
+    "haxe",
+	"typescript",
+    "mvc",
+    "front-end",
+    "javascript",
+    "framework",
+	"component",
+	"webcomponent",
+  ],
+  
+  "ignore": [	
+	"**/.*",
+	"old/",
+	"node_modules/",
+	"bower_components/",
+	"source/",	
+	"*.hxproj",
+	"test.html",	
+	"README.md",
+	"bower.json",
+	"haxelib.json",
+	"LICENSE"	
+  ],
+
+  "license": "MIT",
+  "private": true
+}

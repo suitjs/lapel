@@ -1,0 +1,14 @@
+{
+  "name": "lapelhx",
+  "url": "https://github.com/suitjs/lapel",
+  "license": "MIT",
+  "tags": ["mvc","model","view","controller","mutation","bind","component","webcomponent"],
+  "description": "Make your Suit even more fancier by adding Lapel web components.",
+  "version": "1.0.0",
+  "releasenotes": "1.0.0",
+  "contributors": ["eduardo-costa"],
+  "dependencies": 
+  {
+	"suithx": "*"
+  }
+}
