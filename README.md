@@ -1,3 +1,3 @@
 # Lapel
 
-Make your Suit even more fancier by adding Lapel web components.
+Make your Suit app fancier by adding Lapel's web components.
