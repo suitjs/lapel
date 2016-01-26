@@ -47,8 +47,6 @@ class Lapel
 		untyped window.Suit = window.Suit || { view: { components: [] } };
 		
 		if (!m_has_suit) untyped console.warn("Lapel> Suit framework not found!");
-		
-		
 	}
 	
 	/**
@@ -148,7 +146,9 @@ class Lapel
 			{
 				var v : DOMElement = l[j];
 				var attribs : NamedNodeMap = v.attributes;				
-				var text    : String 	   = v.textContent;				
+				var text    : String 	   = v.textContent;
+				if (untyped v.isParsed != null) if (untyped v.isParsed) continue;
+				untyped v.isParsed  = true;
 				v.innerHTML = StringTools.replace(c.src, "$text", text);
 				parseElement(c,v);				
 			}
@@ -185,7 +185,7 @@ class Lapel
 			
 			if (c.init != null) c.init(v);
 			
-			var is_inner : Bool = c.inner == null ? true : c.inner;			
+			var is_inner : Bool = c.inner == null ? true : c.inner;
 			if (is_inner) return;
 			var p   : DOMElement = cast v.parentElement;					
 			for (i in 0...v.children.length)

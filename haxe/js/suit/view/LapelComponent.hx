@@ -5,7 +5,7 @@ import js.html.DOMElement;
  * Class that describes a View prefab component.
  * @author eduardo-costa
  */
-extern class LapelComponent
+class LapelComponent
 {
 	/**
 	 * Tag that represent this component.
@@ -18,13 +18,22 @@ extern class LapelComponent
 	public var src : String;
 	
 	/**
-	 * Callback called when the component is created.
-	 */
-	public var init : DOMElement->Void;
-	
-	/**
 	 * Flag that indicates the component's src must stay inside the tag.
 	 */
 	public var inner : Bool;
+	
+	/**
+	 * Callback called when this component is initialized with a new instance.
+	 */
+	public function init(p_target:DOMElement):Void { }
+	
+	/**
+	 * Register this LapelComponent into the component pool.
+	 */
+	public function register():Void
+	{
+		var ref : Dynamic = untyped window.Lapel;
+		if (ref != null) ref.add(this);
+	}
 		
 }

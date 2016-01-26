@@ -133,6 +133,10 @@ js_suit_view_Lapel.parse = function() {
 			var v = l1[j];
 			var attribs = v.attributes;
 			var text = v.textContent;
+			if(v.isParsed != null) {
+				if(v.isParsed) continue;
+			}
+			v.isParsed = true;
 			v.innerHTML = StringTools.replace(c.src,"$text",text);
 			js_suit_view_Lapel.parseElement(c,v);
 		}
@@ -163,7 +167,7 @@ js_suit_view_Lapel.parseElement = function(p_component,p_target) {
 				vc.setAttribute(a.name,a.value);
 			}
 		}
-		if(c.init != null) c.init(v);
+		if($bind(c,c.init) != null) c.init(v);
 		var is_inner;
 		if(c.inner == null) is_inner = true; else is_inner = c.inner;
 		if(is_inner) return;
@@ -189,6 +193,17 @@ js_suit_view_Lapel.schedule = function() {
 		js_suit_view_Lapel.m_mutation_lock = false;
 	},2);
 };
+var js_suit_view_LapelComponent = function() { };
+js_suit_view_LapelComponent.prototype = {
+	init: function(p_target) {
+	}
+	,register: function() {
+		var ref = window.Lapel;
+		if(ref != null) ref.add(this);
+	}
+};
+var $_, $fid = 0;
+function $bind(o,m) { if( m == null ) return null; if( m.__id__ == null ) m.__id__ = $fid++; var f; if( o.hx__closures__ == null ) o.hx__closures__ = {}; else f = o.hx__closures__[m.__id__]; if( f == null ) { f = function(){ return f.method.apply(f.scope, arguments); }; f.scope = o; f.method = m; o.hx__closures__[m.__id__] = f; } return f; }
 if(Array.prototype.indexOf) HxOverrides.indexOf = function(a,o,i) {
 	return Array.prototype.indexOf.call(a,o,i);
 };
