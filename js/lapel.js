@@ -2,6 +2,10 @@ var Lapel =
 function(window,document,body)
 {
 
+	"use strict";
+
+	console.log("Lapel> Init v1.0.0");
+
 	/**
 	 * Blocks the mutation handling while components are parsed.
 	 */
