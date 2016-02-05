@@ -1,6 +1,8 @@
+/**
+Class that implements the feature of webcomponents and extends the functionalities of Suit.
+//*/
 var Lapel =
-function(window,document,body)
-{
+function(window,document,body) {
 
 	"use strict";
 
