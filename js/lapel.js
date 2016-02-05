@@ -5,13 +5,13 @@ function(window,document,body)
 	/**
 	 * Blocks the mutation handling while components are parsed.
 	 */
-	var m_mutation_lock = false;
+	var m_mutationLock = false;
 	
 	
 	/**
 	 * Reference to the first parse.
 	 */
-	var m_scheduler_id = -1;
+	var m_schedulerId = -1;
 	
 	/**
 	 * Flag that indicates Lapel has made the first setup.
@@ -21,7 +21,7 @@ function(window,document,body)
 	/**
 	Flag that indicates the Suit core framework exists in the page.
 	//*/
-	var m_has_suit = window.Suit != null;
+	var m_hasSuit = window.Suit != null;
 
 	/**
 	Container for loaded components.
@@ -76,11 +76,11 @@ function(window,document,body)
 		
 		var fn = null;
 
-		window.addEventListener(m_has_suit ? "component" : "load",
-		fn = function lapel_on_init(ev) {
+		window.addEventListener(m_hasSuit ? "component" : "load",
+		fn = function lapelOnInit(ev) {
 
-			if (m_scheduler_id >= 0) window.clearInterval(m_scheduler_id);
-			m_scheduler_id = window.setTimeout(function() { m_lapelBoot(); }, 1);			
+			if (m_schedulerId >= 0) window.clearInterval(m_schedulerId);
+			m_schedulerId = window.setTimeout(function() { m_lapelBoot(); }, 1);			
 			l.push(p_component);
 			window.removeEventListener(fn);
 		});		
@@ -96,7 +96,7 @@ function(window,document,body)
 
 		if (!m_booted) {			
 
-			m_mutation_lock = false;
+			m_mutationLock = false;
 			if (window.MutationObserver != null) {
 
 				var mo = new MutationObserver(m_lapelOnMutation);
@@ -207,10 +207,10 @@ function(window,document,body)
 	var m_lapelSchedule =
 	function m_lapelSchedule()
 	{
-		if (m_mutation_lock) return;
-		m_mutation_lock = true;		
+		if (m_mutationLock) return;
+		m_mutationLock = true;		
 		m_lapelParse();
-		window.setTimeout(function() { m_mutation_lock = false; }, 2);
+		window.setTimeout(function() { m_mutationLock = false; }, 2);
 	};
 
 
