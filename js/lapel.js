@@ -31,19 +31,16 @@ function(window,document,body)
 	/**
 	Helper function to validate if a variable is null or the wrong type and return a default result.
 	//*/
-	function assert(v,d,t)
-	{
-		return t==null ? (v==null ? d : v) : ((typeof(v)==t) ? v : d);
-	}
+	function assert(v,d,t) { return t==null ? (v==null ? d : v) : ((typeof(v)==t) ? v : d);	}
 
 	/**
 	 * Finds an LapelComponent template if any.
 	 * @param	p_tag
 	 * @return
 	 */
-	var lapel_find = 
-	function lapel_find(p_tag)
-	{
+	var lapelFind = 
+	function lapelFind(p_tag) {
+
 		var l = Lapel.components;
 		for (var i=0;i<l.length;i++) if (l[i].tag == p_tag) return l[i];
 		return null;
@@ -52,9 +49,9 @@ function(window,document,body)
 	/**
 	Creates a new instance of a LapelComponent.
 	//*/
-	var lapel_create =
-	function lapel_create(p_tag,p_attribs,p_src)
-	{
+	var lapelCreate =
+	function lapelCreate(p_tag,p_attribs,p_src) {
+
 		var c = (typeof(p_tag)=="string") ? Lapel.find(p_tag) : p_tag;
 
 		if (c == null) return null;
@@ -71,19 +68,19 @@ function(window,document,body)
 	/**
 	Register a new component to the component pool.
 	//*/
-	var lapel_add =
-	function lapel_add(p_component)
-	{		
+	var lapelAdd =
+	function lapelAdd(p_component) {		
+
 		var l = Lapel.components;
 		if (l.indexOf(p_component) >= 0) return p_component;
 		
 		var fn = null;
 
 		window.addEventListener(m_has_suit ? "component" : "load",
-		fn = function(ev)
-		{
+		fn = function lapel_on_init(ev) {
+
 			if (m_scheduler_id >= 0) window.clearInterval(m_scheduler_id);
-			m_scheduler_id = window.setTimeout(function() { m_lapel_boot(); }, 1);			
+			m_scheduler_id = window.setTimeout(function() { m_lapelBoot(); }, 1);			
 			l.push(p_component);
 			window.removeEventListener(fn);
 		});		
@@ -94,24 +91,24 @@ function(window,document,body)
 	/**
 	 * Startup Lapel after the first components.
 	 */
-	var m_lapel_boot = 
-	function m_lapel_boot()
-	{		
-		if (!m_booted)
-		{			
+	var m_lapelBoot = 
+	function m_lapelBoot() {		
+
+		if (!m_booted) {			
+
 			m_mutation_lock = false;
-			if (window.MutationObserver != null)
-			{
-				var mo = new MutationObserver(m_lapel_on_mutation);
+			if (window.MutationObserver != null) {
+
+				var mo = new MutationObserver(m_lapelOnMutation);
 				mo.observe(body, { subtree:true, childList:true } );
 			}
-			else
-			{
+			else {
+
 				console.warn("Lapel> MutationObserver not found!");
 			}
 		}
 		
-		m_lapel_schedule();
+		m_lapelSchedule();
 		
 		m_booted = true;
 	};
@@ -119,30 +116,28 @@ function(window,document,body)
 	/**
 	 * Sweeps the DOM and insert components where they should appear.
 	 */
-	var m_lapel_parse =
-	function m_lapel_parse()
-	{		
+	var m_lapelParse =
+	function m_lapelParse() {		
+
 		var cl = Lapel.components;
 		
-		for (var i=0;i<cl.length;i++)
-		{
+		for (var i=0;i<cl.length;i++) {
+
 			var c = cl[i];
 			var l = body.querySelectorAll(c.tag);
 
-			for (var j=0;j<l.length;j++)
-			{				
+			for (var j=0;j<l.length;j++) {				
+
 				var v 		= l[j];
 				var attribs = v.attributes;				
 				var text    = v.textContent;
-
-
 
 				if (v.isParsed != null) if (v.isParsed) continue;
 
 				v.isParsed  = true;				
 				v.innerHTML = c.src.replace("$text", text);
 
-				m_lapel_parse_element(c,v);
+				m_lapelParseElement(c,v);
 			}
 		}		
 	};
@@ -151,8 +146,8 @@ function(window,document,body)
 	 * Finishes parsing the component element.
 	 * @param	p_target
 	 */
-	var m_lapel_parse_element =
-	function m_lapel_parse_element(p_component,p_target)
+	var m_lapelParseElement =
+	function m_lapelParseElement(p_component,p_target)
 	{
 		var v = p_target;
 		var c = p_component;
@@ -199,22 +194,22 @@ function(window,document,body)
 	 * @param	p_list
 	 * @param	p_observer
 	 */
-	var m_lapel_on_mutation =
-	function m_lapel_on_mutation(p_records,p_observer)
+	var m_lapelOnMutation =
+	function m_lapelOnMutation(p_records,p_observer)
 	{
-		m_lapel_schedule();
+		m_lapelSchedule();
 	};
 
 
 	/**
 	 * Schedules an atomic callback.
 	 */
-	var m_lapel_schedule =
-	function m_lapel_schedule()
+	var m_lapelSchedule =
+	function m_lapelSchedule()
 	{
 		if (m_mutation_lock) return;
 		m_mutation_lock = true;		
-		m_lapel_parse();
+		m_lapelParse();
 		window.setTimeout(function() { m_mutation_lock = false; }, 2);
 	};
 
@@ -222,9 +217,9 @@ function(window,document,body)
 	return	{
 		
 		components: m_components,
-		find: 		lapel_find,	
-		create: 	lapel_create,
-		add:        lapel_add,
+		find: 		lapelFind,	
+		create: 	lapelCreate,
+		add:        lapelAdd,
 	};
 
 }(window,document,document.body);
