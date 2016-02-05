@@ -22,8 +22,8 @@ class Main
 	 */
 	static public function main():Void
 	{		
-		untyped Browser.window.Lapel = Lapel;
-		Lapel.init();
+		
+		
 	}
 	
 	
