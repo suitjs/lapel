@@ -39,7 +39,7 @@ function(window,document,body)
 	 * @return
 	 */
 	var lapelFind = 
-	function lapelFind(p_tag) {
+	function find(p_tag) {
 
 		var l = Lapel.components;
 		for (var i=0;i<l.length;i++) if (l[i].tag == p_tag) return l[i];
@@ -50,7 +50,7 @@ function(window,document,body)
 	Creates a new instance of a LapelComponent.
 	//*/
 	var lapelCreate =
-	function lapelCreate(p_tag,p_attribs,p_src) {
+	function create(p_tag,p_attribs,p_src) {
 
 		var c = (typeof(p_tag)=="string") ? Lapel.find(p_tag) : p_tag;
 
@@ -69,7 +69,7 @@ function(window,document,body)
 	Register a new component to the component pool.
 	//*/
 	var lapelAdd =
-	function lapelAdd(p_component) {		
+	function add(p_component) {		
 
 		var l = Lapel.components;
 		if (l.indexOf(p_component) >= 0) return p_component;
@@ -92,7 +92,7 @@ function(window,document,body)
 	 * Startup Lapel after the first components.
 	 */
 	var m_lapelBoot = 
-	function m_lapelBoot() {		
+	function boot() {		
 
 		if (!m_booted) {			
 
@@ -117,7 +117,7 @@ function(window,document,body)
 	 * Sweeps the DOM and insert components where they should appear.
 	 */
 	var m_lapelParse =
-	function m_lapelParse() {		
+	function parse() {		
 
 		var cl = Lapel.components;
 		
@@ -147,25 +147,25 @@ function(window,document,body)
 	 * @param	p_target
 	 */
 	var m_lapelParseElement =
-	function m_lapelParseElement(p_component,p_target)
-	{
+	function parseElement(p_component,p_target) 	{
+
 		var v = p_target;
 		var c = p_component;
 
 		window.setTimeout(
-		function() 
-		{
+		function() {
+
 			var p = v.parentElement;					
-			for (var i=0; i<v.children.length;i++)
-			{	
+			for (var i=0; i<v.children.length;i++) {	
+
 				var vc = v.children[i];
-				for (var j=0;j<v.classList.length;j++) 
-				{ 					
+				for (var j=0;j<v.classList.length;j++) { 					
+
 					if(!vc.classList.contains(v.classList[j])) vc.classList.add(v.classList[j]);
 				}
 				
-				for (var j=0;j<v.attributes.length;j++) 									
-				{ 
+				for (var j=0;j<v.attributes.length;j++) { 
+
 					var a = v.attributes[j]; 
 					if (a.name == "class") continue;
 					vc.setAttribute(a.name, a.value);
@@ -179,8 +179,8 @@ function(window,document,body)
 			if (is_inner) return;
 
 			var p = v.parentElement;					
-			for (var i=0;i<v.children.length;i++)
-			{	
+			for (var i=0;i<v.children.length;i++) {	
+
 				var vc = v.children[i];				
 				if (v.nextSibling != null) { p.insertBefore(vc,v); } else { p.appendChild(vc); }
 			}					
@@ -195,8 +195,8 @@ function(window,document,body)
 	 * @param	p_observer
 	 */
 	var m_lapelOnMutation =
-	function m_lapelOnMutation(p_records,p_observer)
-	{
+	function onMutation(p_records,p_observer) {
+
 		m_lapelSchedule();
 	};
 
@@ -205,16 +205,17 @@ function(window,document,body)
 	 * Schedules an atomic callback.
 	 */
 	var m_lapelSchedule =
-	function m_lapelSchedule()
-	{
+	function schedule() {
+
 		if (m_mutationLock) return;
+
 		m_mutationLock = true;		
 		m_lapelParse();
 		window.setTimeout(function() { m_mutationLock = false; }, 2);
 	};
 
 
-	return	{
+	return {
 		
 		components: m_components,
 		find: 		lapelFind,	
