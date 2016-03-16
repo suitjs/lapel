@@ -3,10 +3,10 @@
   "homepage": "https://github.com/suitjs/lapel",
   "authors": [
     "Eduardo Dias da Costa <eduardo@thelaborat.org>",
-	"Gustavo Allebrandt <gustavoallebrandt@gmail.com>",
+	"Gustavo Allebrandt <gustavoallebrandt@gmail.com>"
   ],
   "description": "Make your Suit fancier by adding Lapel web components.",
-  "main": ["deploy/js/lapel.js"],
+  "main": ["js/lapel.js"],
   "moduleType": [],
   "keywords": [
     "javascript",
@@ -19,7 +19,7 @@
 	  "webcomponent",
     "tags",
     "view",
-    "mvc",
+    "mvc"
   ],
   
   "ignore": [	

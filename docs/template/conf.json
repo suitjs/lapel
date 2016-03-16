@@ -1,0 +1,44 @@
+{
+	"tags": {
+		"allowUnknownTags" : true
+	},
+    
+	"plugins": ["plugins/markdown"],
+	"templates": {
+        "applicationName": "SuitJS - Lapel",
+        "navigationImage": "http://www.suitjs.com/public/images/logo-64.png",
+		"cleverLinks":      true,
+		"monospaceLinks":   true,
+        "linenums":         true,
+		"disqus":           "suitjs",
+		"googleAnalytics":  "UA-75143185-1",        
+        
+		"default": {
+			"outputSourceFiles" : true
+		},
+        
+		"openGraph": {
+			"title":        "SuitJS - Lapel",
+			"type":         "website",
+			"image":        "http://www.suitjs.com/public/images/logo-suitjs.svg?v=2",
+			"site_name":    "SuitJS - Lapel",
+			"url":          "http://suitjs.com/docs/lapel/"
+		},
+        
+		"meta": {
+			"title":        "SuitJS - Lapel",
+			"description":  "Fancy components for your suit app.",
+			"keyword":      "javascript,framework,mvc,suitjs,haxe,typescript,components,lapel"
+		},
+        
+        "link":{
+            "favicon": "http://suitjs.com/favicon.png"
+        }
+        
+	},
+	"markdown": {
+		"parser":   "gfm",
+		"hardwrap": true,
+		"tags":     ["examples"]
+	}
+}

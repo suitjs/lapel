@@ -1,61 +1,54 @@
 /**
-Class that implements the feature of webcomponents and extends the functionalities of Suit.
-//*/
-var Lapel =
-function(window,document,body) {
+* Class that implements the feature of webcomponents and extends the functionalities of Suit.
+* @class
+* @type Lapel
+*/
+var Lapel;
+(function(window,document,body) {
 
 	"use strict";
 
 	console.log("Lapel> Init v1.0.0");
 
-	/**
-	 * Blocks the mutation handling while components are parsed.
-	 */
+	//Blocks the mutation handling while components are parsed.
 	var m_mutationLock = false;
 	
-	
-	/**
-	 * Reference to the first parse.
-	 */
+	//Reference to the first parse.
 	var m_schedulerId = -1;
 	
-	/**
-	 * Flag that indicates Lapel has made the first setup.
-	 */
+	//Flag that indicates Lapel has made the first setup.
 	var m_booted = false;
 
-	/**
-	Flag that indicates the Suit core framework exists in the page.
-	//*/
+	//Flag that indicates the Suit core framework exists in the page.
 	var m_hasSuit = window.Suit != null;
 
-	/**
-	Container for loaded components.
-	//*/
+	//Container for loaded components.
 	var m_components = [];
 
-	/**
-	Helper function to validate if a variable is null or the wrong type and return a default result.
-	//*/
+	//Helper function to validate if a variable is null or the wrong type and return a default result.
 	function assert(v,d,t) { return t==null ? (v==null ? d : v) : ((typeof(v)==t) ? v : d);	}
 
 	/**
-	 * Finds an LapelComponent template if any.
-	 * @param	p_tag
-	 * @return
+	 * Finds a LapelComponent template. If none is found, return null.
+	 * @param	{String} p_tag - Name of the tag of the template. 
+	 * @returns {Object} - Reference to the lapel component template.
 	 */
-	var lapelFind = 
+	Lapel.find = 
 	function find(p_tag) {
 
 		var l = Lapel.components;
 		for (var i=0;i<l.length;i++) if (l[i].tag == p_tag) return l[i];
 		return null;
 	};
-
-	/**
-	Creates a new instance of a LapelComponent.
-	//*/
-	var lapelCreate =
+	
+    /**
+     * Creates a new instance of a LapelComponent.
+	 * @param  {String|Object} p_tag - Name of the template's tag or reference to the component itself.
+	 * @param  {?Object} p_attribs - Table of attributes for the created Element.
+	 * @param  {?String} p_src - Text content of the created Element.
+     * @returns {Object} - Reference to the created Element with features of the component.
+	 */
+	Lapel.create =
 	function create(p_tag,p_attribs,p_src) {
 
 		var c = (typeof(p_tag)=="string") ? Lapel.find(p_tag) : p_tag;
@@ -71,10 +64,12 @@ function(window,document,body) {
 		return it;
 	};
 
-	/**
-	Register a new component to the component pool.
-	//*/
-	var lapelAdd =
+    /**
+     * Register a new component to the component pool.
+	 * @param  {Object} p_component - Reference to the Lapel component.
+     * @returns {Object} - Reference to the added component.
+	 */
+	Lapel.add =	
 	function add(p_component) {		
 
 		var l = Lapel.components;
@@ -94,9 +89,7 @@ function(window,document,body) {
 		return p_component;
 	};
 
-	/**
-	 * Startup Lapel after the first components.
-	 */
+	//Startup Lapel after the first components.
 	var m_lapelBoot = 
 	function boot() {		
 
@@ -119,9 +112,7 @@ function(window,document,body) {
 		m_booted = true;
 	};
 
-	/**
-	 * Sweeps the DOM and insert components where they should appear.
-	 */
+    //Sweeps the DOM and insert components where they should appear.
 	var m_lapelParse =
 	function parse() {		
 
@@ -148,10 +139,7 @@ function(window,document,body) {
 		}		
 	};
 
-	/**
-	 * Finishes parsing the component element.
-	 * @param	p_target
-	 */
+	//Finishes parsing the component element.
 	var m_lapelParseElement =
 	function parseElement(p_component,p_target) 	{
 
@@ -195,11 +183,7 @@ function(window,document,body) {
 		}, 1);
 	};
 
-	/**
-	 * Callback that handles DOM changes.
-	 * @param	p_list
-	 * @param	p_observer
-	 */
+    //Callback that handles DOM changes.
 	var m_lapelOnMutation =
 	function onMutation(p_records,p_observer) {
 
@@ -207,9 +191,7 @@ function(window,document,body) {
 	};
 
 
-	/**
-	 * Schedules an atomic callback.
-	 */
+	//Schedules an atomic callback.
 	var m_lapelSchedule =
 	function schedule() {
 
@@ -220,13 +202,4 @@ function(window,document,body) {
 		window.setTimeout(function() { m_mutationLock = false; }, 2);
 	};
 
-
-	return {
-		
-		components: m_components,
-		find: 		lapelFind,	
-		create: 	lapelCreate,
-		add:        lapelAdd,
-	};
-
-}(window,document,document.body);
+})(window,document,document.body);
