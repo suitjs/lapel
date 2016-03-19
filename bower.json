@@ -7,7 +7,7 @@
   ],
   "description": "Make your Suit fancier by adding Lapel web components.",
   "main": ["js/lapel.js"],
-  "moduleType": [],
+  "moduleType": "globals",
   "keywords": [
     "javascript",
     "haxe",
@@ -15,8 +15,8 @@
     "suitjs",
     "front-end",    
     "framework",    
-	  "component",
-	  "webcomponent",
+	"component",
+	"webcomponent",
     "tags",
     "view",
     "mvc"
@@ -24,18 +24,18 @@
   
   "ignore": [	
 	"**/.*",
-	"old/",
+    "docs/",
+    "haxe",
+    "typescript",	
 	"node_modules/",
 	"bower_components/",
-	"source/",	
-	"*.hxproj",
-	"test.html",	
+	"source/",
+    "LICENSE.md",	
 	"README.md",
-	"bower.json",
-	"haxelib.json",
-	"LICENSE"	
+	"*.json",	
+    "*.hxproj"	
   ],
 
   "license": "MIT",
-  "private": true
+  "private": false
 }
