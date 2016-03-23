@@ -24,21 +24,31 @@ First define a simple component template.
 
 ```js
 Lapel.add({
-    tag: "component",                        //HTML Tag.
-    src: "<div class='custom'>$text</div>",  //HTML that implements the component. '$text' gets replaced by the 'textContent'
-    init: function(p_element) {              //Callback called when the Element is created.
+    
+    //HTML Tag.
+    tag: "component",
+                            
+    //HTML that implements the component.
+    //'$text' gets replaced by the 'element.textContent'
+    src: "<div class='custom'>$text</div>",
+      
+    //Callback called when the Element is created.
+    init: function(p_element) {              
         console.log(p_element);
     },
-    inner: false                             //Flag that tells Lapel to replace <component>...</component> by <div>...</div>
+    
+    //Flag that tells Lapel to replace <component>...</component> by <div>...</div>
+    //If 'true', the result will be <component><div>...</div></component>
+    inner: false                             
 });
 ```
-Then the source HTML.
+Then the add the `component` tag in source HTML.
 ```html
 <component>I'm a component.</component>
 ```
 After initialization.
 ```html
-<!-- also will log '<div class='custom'>I'm a component.</div>'
+<!-- also will log '<div class='custom'>I'm a component.</div>' -->
 <div class='custom'>I'm a component.</div>
 ```
 
