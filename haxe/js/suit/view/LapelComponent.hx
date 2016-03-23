@@ -26,14 +26,6 @@ class LapelComponent
 	 * Callback called when this component is initialized with a new instance.
 	 */
 	public function init(p_target:DOMElement):Void { }
-	
-	/**
-	 * Register this LapelComponent into the component pool.
-	 */
-	public function register():Void
-	{
-		var ref : Dynamic = untyped window.Lapel;
-		if (ref != null) ref.add(this);
-	}
+
 		
 }

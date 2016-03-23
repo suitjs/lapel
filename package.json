@@ -1,0 +1,29 @@
+{
+  "name": "suitjs-lapel",
+  "version": "1.0.0",
+  "description": "Make your Suit even fancier with web components.", 
+  
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suitjs/lapel"
+  },
+  "author": "Eduardo Dias da Costa  <eduardo@thelaborat.org> https://github.com/eduardo-costa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/suitjs/suitjs.github.io/issues"
+  },
+  "homepage": "http://www.suitjs.com",
+  "dependencies": {
+    
+  },
+  "scripts": {
+    "build-docs":   "jsdoc ./js/lapel.doc.js -d docs/deploy/ -t docs/template/ -c docs/template/conf.json -r README.md",
+    "build-js":     "uglifyjs js/lapel.doc.js -b -o js/lapel.js && uglifyjs js/lapel.doc.js -o js/lapel.min.js",
+    "build-haxe":   "haxe vscode-project.hxml",
+    "serve":        "http-server ./ -p 8081",
+    "build":        "npm run build-docs && npm run build-js"   
+  },
+  "contributors": [
+    "Gustavo Allebrandt <gustavoallebrandt@gmail.com"
+  ]
+}

@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <title>SuitJS - Lapel</title>
     
-    <meta name="description" content="Fancy components for your suit app." />
+    <meta name="description" content="Make your SuitJS app fancier using custom components." />
     
-        <meta name="keywords" content="javascript,framework,mvc,suitjs,haxe,typescript,components,lapel" />
-        <meta name="keyword" content="javascript,framework,mvc,suitjs,haxe,typescript,components,lapel" />
+        <meta name="keywords" content="javascript,framework,mvc,suitjs,haxe,typescript,components,custom" />
+        <meta name="keyword" content="javascript,framework,mvc,suitjs,haxe,typescript,components,custom" />
     
     
     
     <meta property="og:title" content="SuitJS - Lapel"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:image" content="http://www.suitjs.com/public/images/logo-suitjs.svg?v=2"/>
-    <meta property="og:site_name" content="SuitJS - Lapel"/>
+    <meta property="og:image" content="http://suitjs.com/img/logo-og-big.png"/>
+    <meta property="og:site_name" content="SuitJS - Core"/>
     <meta property="og:url" content="http://suitjs.com/docs/lapel/"/>
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -30,7 +30,7 @@
     
     
     <script>
-    var config = {"monospaceLinks":true,"cleverLinks":true,"applicationName":"SuitJS - Lapel","navigationImage":"http://www.suitjs.com/public/images/logo-64.png","linenums":true,"disqus":"suitjs","googleAnalytics":"UA-75143185-1","default":{"outputSourceFiles":true},"openGraph":{"title":"SuitJS - Lapel","type":"website","image":"http://www.suitjs.com/public/images/logo-suitjs.svg?v=2","site_name":"SuitJS - Lapel","url":"http://suitjs.com/docs/lapel/"},"meta":{"title":"SuitJS - Lapel","description":"Fancy components for your suit app.","keyword":"javascript,framework,mvc,suitjs,haxe,typescript,components,lapel"},"link":{"favicon":"http://suitjs.com/favicon.png"}};
+    var config = {"monospaceLinks":true,"cleverLinks":true,"applicationName":"SuitJS - Lapel","navigationImage":"http://www.suitjs.com/img/logo-64.png","linenums":true,"disqus":"suitjs","googleAnalytics":"UA-75143185-1","default":{"outputSourceFiles":true},"openGraph":{"title":"SuitJS - Lapel","type":"website","image":"http://suitjs.com/img/logo-og-big.png","site_name":"SuitJS - Core","url":"http://suitjs.com/docs/lapel/"},"meta":{"title":"SuitJS - Lapel","description":"Make your SuitJS app fancier using custom components.","keyword":"javascript,framework,mvc,suitjs,haxe,typescript,components,custom"},"link":{"favicon":"http://suitjs.com/favicon.png"}};
     </script>
     
 
@@ -54,7 +54,7 @@
 <div class="navigation">
 
     <div style="text-align: center; margin-top: 5px;">
-        <img src="http://www.suitjs.com/public/images/logo-64.png" alt="SuitJS - Lapel" style="display: inline">
+        <img src="http://www.suitjs.com/img/logo-64.png" alt="SuitJS - Lapel" style="display: inline">
     </div>
 
     <h3 class="applicationName"><a href="index.html">SuitJS - Lapel</a></h3>
@@ -123,7 +123,7 @@
     
         
         <div class="tag-source">
-            <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.js.html">js/lapel.js</a>, <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.js.html#line6">line 6</a>
+            <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.doc.js.html">js/lapel.doc.js</a>, <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.doc.js.html#line6">line 6</a>
         </div>
         
     </div>
@@ -207,12 +207,12 @@
     <div class="nameContainer">
         <h4 class="name" id=".add">
             
-            <span class="type-signature static">static</span>Lapel.add<span class="signature">(p_component)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{Object}</span>
+            <span class="type-signature static">static</span>Lapel.add<span class="signature">(p_component)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="global.html#LapelComponent">LapelComponent</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.js.html">js/lapel.js</a>, <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.js.html#line72">line 72</a>
+            <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.doc.js.html">js/lapel.doc.js</a>, <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.doc.js.html#line123">line 123</a>
         </div>
         
     </div>
@@ -260,7 +260,7 @@
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type"><a href="global.html#LapelComponent">LapelComponent</a></span>
 
 
             
@@ -331,12 +331,20 @@
             
             <td class="type">
             
-                        Object
+                        <a href="global.html#LapelComponent">LapelComponent</a>
                         
                     
             </td>
             <td class="description last"><ul>
-<li>Reference to the added component.</li>
+<li>Reference to the added component.<br>In the page javascript.<pre class="prettyprint source lang-js"><code>var c = {
+tag: &quot;custom-component&quot;,
+src: &quot;&lt;div class='custom'>&lt;/div>&quot;,
+init: function(p_element) {`
+   p_element.textContent = &quot;I'm Here.&quot;;
+},
+inner: false
+};
+Lapel.add(c);</code></pre>The original HTML have the custom tag. <pre class="prettyprint source lang-html"><code>&lt;custom-component>Original Text&lt;/component></code></pre>Then after init.<pre class="prettyprint source lang-html"><code>&lt;div class='custom'>I'm Here.&lt;/div></code></pre>If <code>inner</code> is true, then the result would be.<pre class="prettyprint source lang-html"><code>&lt;custom-component>&lt;div class='custom'>I'm Here.&lt;/div>&lt;/component></code></pre></li>
 </ul></td>
         </tr>
     
@@ -354,12 +362,12 @@
     <div class="nameContainer">
         <h4 class="name" id=".create">
             
-            <span class="type-signature static">static</span>Lapel.create<span class="signature">(p_tag, p_attribs, p_src)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{Object}</span>
+            <span class="type-signature static">static</span>Lapel.create<span class="signature">(p_tag, p_attribs, p_src)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{Element}</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.js.html">js/lapel.js</a>, <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.js.html#line51">line 51</a>
+            <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.doc.js.html">js/lapel.doc.js</a>, <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.doc.js.html#line78">line 78</a>
         </div>
         
     </div>
@@ -410,7 +418,7 @@
 <span class="param-type">String</span>
 |
 
-<span class="param-type">Object</span>
+<span class="param-type"><a href="global.html#LapelComponent">LapelComponent</a></span>
 
 
             
@@ -485,7 +493,7 @@
                         
                     
                 
-                <p>Text content of the created Element.</p></td>
+                <p>String that can fill the 'textContent' variable of the created Element. Defaults to empty.</p></td>
         </tr>
 	
 	
@@ -546,7 +554,7 @@
             
             <td class="type">
             
-                        Object
+                        Element
                         
                     
             </td>
@@ -561,6 +569,15 @@
     
     
     
+        <h5>Example</h5>
+        
+
+    
+    <pre class="prettyprint"><code><p>//Define a simple component.<br>Lapel.add({<br> tag: &quot;custom-button&quot;,<br> src: &quot;<button class='custom'></button>&quot;<br>});</p>
+<p>var bt = Lapel.create(&quot;custom-button&quot;,{name: &quot;cbutton&quot;},&quot;Click Me!&quot;);<br>console.log(bt); //<button class='custom' name="cbutton">Click Me!</button></p></code></pre>
+    
+
+    
 </dd>
 
         
@@ -569,12 +586,12 @@
     <div class="nameContainer">
         <h4 class="name" id=".find">
             
-            <span class="type-signature static">static</span>Lapel.find<span class="signature">(p_tag)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{Object}</span>
+            <span class="type-signature static">static</span>Lapel.find<span class="signature">(p_tag)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="global.html#LapelComponent">LapelComponent</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.js.html">js/lapel.js</a>, <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.js.html#line36">line 36</a>
+            <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.doc.js.html">js/lapel.doc.js</a>, <a href="g__development_project_web_thelab_suitjs_lapel_js_lapel.doc.js.html#line54">line 54</a>
         </div>
         
     </div>
@@ -585,7 +602,7 @@
     
     
     <div class="description">
-        <p>Finds a LapelComponent template. If none is found, return null.</p>
+        <p>Finds a LapelComponent template based on its tag name. If none is found, null is returned.</p>
     </div>
     
 
@@ -632,7 +649,7 @@
             
             <td class="description last">
                 
-                <p>Name of the tag of the template.</p></td>
+                <p>HTML tag of the template.</p></td>
         </tr>
 	
 	
@@ -693,7 +710,7 @@
             
             <td class="type">
             
-                        Object
+                        <a href="global.html#LapelComponent">LapelComponent</a>
                         
                     
             </td>
@@ -707,6 +724,15 @@
 
     
     
+    
+        <h5>Example</h5>
+        
+
+    
+    <pre class="prettyprint"><code><p>//Define a simple component.<br>Lapel.add({<br> tag: &quot;my-component&quot;,<br> src: &quot;<div class='my-component'></div>&quot;<br>});</p>
+<p>var c = Lapel.find(&quot;my-component&quot;);<br>console.log(c); //{ tag: 'my-component', src: &quot;<div class='my-component'></div>&quot; }</p></code></pre>
+    
+
     
 </dd>
 
@@ -733,7 +759,7 @@
         
 
         <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 16 2016 03:38:04 GMT-0300 (E. South America Standard Time)
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 23 2016 18:33:28 GMT-0300 (E. South America Standard Time)
         </footer>
     </div>
 </div>

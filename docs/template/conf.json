@@ -6,7 +6,7 @@
 	"plugins": ["plugins/markdown"],
 	"templates": {
         "applicationName": "SuitJS - Lapel",
-        "navigationImage": "http://www.suitjs.com/public/images/logo-64.png",
+        "navigationImage": "http://www.suitjs.com/img/logo-64.png",
 		"cleverLinks":      true,
 		"monospaceLinks":   true,
         "linenums":         true,
@@ -20,15 +20,15 @@
 		"openGraph": {
 			"title":        "SuitJS - Lapel",
 			"type":         "website",
-			"image":        "http://www.suitjs.com/public/images/logo-suitjs.svg?v=2",
-			"site_name":    "SuitJS - Lapel",
+			"image":        "http://suitjs.com/img/logo-og-big.png",
+			"site_name":    "SuitJS - Core",
 			"url":          "http://suitjs.com/docs/lapel/"
 		},
         
 		"meta": {
 			"title":        "SuitJS - Lapel",
-			"description":  "Fancy components for your suit app.",
-			"keyword":      "javascript,framework,mvc,suitjs,haxe,typescript,components,lapel"
+			"description":  "Make your SuitJS app fancier using custom components.",
+			"keyword":      "javascript,framework,mvc,suitjs,haxe,typescript,components,custom"
 		},
         
         "link":{
