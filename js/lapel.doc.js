@@ -72,7 +72,8 @@ function find(p_tag) {
  * @param  {?String} p_src - String that can fill the 'textContent' variable of the created Element. Defaults to empty.
  * @returns {Element} - Reference to the created Element with features of the component.
  * @example
- * //Define a simple component. 
+ * //Define a simple component.
+ * ```js 
  * Lapel.add({
  *  tag: "custom-button",
  *  src: "<button class='custom'></button>"
@@ -80,6 +81,7 @@ function find(p_tag) {
  * 
  * var bt = Lapel.create("custom-button",{name: "cbutton"},"Click Me!");
  * console.log(bt); //<button class='custom' name="cbutton">Click Me!</button>
+ * ```
  */
 Lapel.create =
 function create(p_tag,p_attribs,p_src) {
@@ -101,6 +103,7 @@ function create(p_tag,p_attribs,p_src) {
  * Register a new component to the component pool.
  * @param  {LapelComponent} p_component - Reference to the Lapel component.
  * @returns {LapelComponent} - Reference to the added component.
+ * @example
  * In the page javascript.
  * ```js
  * var c = {
@@ -115,7 +118,7 @@ function create(p_tag,p_attribs,p_src) {
  * ```
  * The original HTML have the custom tag. 
  * ```html 
- * <custom-component>Original Text</component>
+ * <custom-component>Original Text</custom-component>
  * ```
  * Then after init.
  * ```html

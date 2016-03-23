@@ -20,10 +20,26 @@ Make your [SuitJS](http://www.suitjs.com) fancier creating custom web components
 After adding the script tag, the `Lapel` global variable will be available.  
  
 #### Hello World
-Given the HTML.
+First define a simple component template.
 
 ```js
-
+Lapel.add({
+    tag: "component",                        //HTML Tag.
+    src: "<div class='custom'>$text</div>",  //HTML that implements the component. '$text' gets replaced by the 'textContent'
+    init: function(p_element) {              //Callback called when the Element is created.
+        console.log(p_element);
+    },
+    inner: false                             //Flag that tells Lapel to replace <component>...</component> by <div>...</div>
+});
+```
+Then the source HTML.
+```html
+<component>I'm a component.</component>
+```
+After initialization.
+```html
+<!-- also will log '<div class='custom'>I'm a component.</div>'
+<div class='custom'>I'm a component.</div>
 ```
 
 # Documentation
