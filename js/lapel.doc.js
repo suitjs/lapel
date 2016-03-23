@@ -38,6 +38,12 @@ function assert(v,d,t) { return t==null ? (v==null ? d : v) : ((typeof(v)==t) ? 
  */
 
 /**
+ * Lapel Component Init Callback.
+ * @typedef {Object} LapelComponentCallback
+ * @property {Element} element - Created DOM Element. Allows to do extra operations using the new created component reference.      
+ */
+
+/**
  * Finds a LapelComponent template based on its tag name. If none is found, null is returned.
  * @param	{String} p_tag - HTML tag of the template. 
  * @returns {LapelComponent} - Reference to the lapel component template.
