@@ -8,7 +8,7 @@ Make your [SuitJS](http://www.suitjs.com) fancier creating custom web components
 * Add the tag `<script src="js/lapel.js"></script>`
 
 #### Bower
-* SuitJs is available as bower package.
+* Lapel is available as bower package.
 * Run `bower install suitjs-lapel`
 * It will install all script versions.
 * Add the tag `<script src="bower_components/suitjs-lapel/js/lapel.js"></script>`

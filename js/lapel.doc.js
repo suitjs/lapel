@@ -22,8 +22,11 @@ var m_booted = false;
 //Flag that indicates the Suit core framework exists in the page.
 var m_hasSuit = window.Suit != null;
 
-//Container for loaded components.
-var m_components = [];
+/**
+ * Container for added components. 
+ * @type {LapelComponent[]}
+ */
+Lapel.components = [];
 
 //Helper function to validate if a variable is null or the wrong type and return a default result.
 function assert(v,d,t) { return t==null ? (v==null ? d : v) : ((typeof(v)==t) ? v : d);	}

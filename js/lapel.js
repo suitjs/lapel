@@ -7,7 +7,7 @@ var Lapel = {};
     var m_schedulerId = -1;
     var m_booted = false;
     var m_hasSuit = window.Suit != null;
-    var m_components = [];
+    Lapel.components = [];
     function assert(v, d, t) {
         return t == null ? v == null ? d : v : typeof v == t ? v : d;
     }
