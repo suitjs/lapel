@@ -10,7 +10,7 @@
   "author": "Eduardo Dias da Costa  <eduardo@thelaborat.org> https://github.com/eduardo-costa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/suitjs/suitjs.github.io/issues"
+    "url": "https://github.com/suitjs/lapel/issues"
   },
   "homepage": "http://www.suitjs.com",
   "dependencies": {
