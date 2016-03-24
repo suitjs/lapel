@@ -32,8 +32,11 @@
 	"source/",
     "LICENSE.md",	
 	"README.md",
-	"*.json",	
-    "*.hxproj"	
+	"*.json",
+    "*.bat",
+    "*.sh",	
+    "*.hxproj",
+    "*.hxml"	
   ],
 
   "license": "MIT"  
