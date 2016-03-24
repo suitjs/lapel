@@ -31,13 +31,14 @@ var Lapel = {};
         var l = Lapel.components;
         if (l.indexOf(p_component) >= 0) return p_component;
         var fn = null;
-        window.addEventListener(m_hasSuit ? "component" : "load", fn = function lapelOnInit(ev) {
+        var evt = m_hasSuit ? "component" : "load";
+        window.addEventListener(evt, fn = function lapelOnInit(ev) {
             if (m_schedulerId >= 0) window.clearInterval(m_schedulerId);
             m_schedulerId = window.setTimeout(function() {
                 m_lapelBoot();
             }, 1);
             l.push(p_component);
-            window.removeEventListener(fn);
+            window.removeEventListener(evt, fn);
         });
         if (p_component.inner == null) p_component.inner = true;
         if (p_component.init == null) p_component.init = null;

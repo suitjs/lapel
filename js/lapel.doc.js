@@ -138,15 +138,15 @@ function add(p_component) {
     var l = Lapel.components;
     if (l.indexOf(p_component) >= 0) return p_component;
     
-    var fn = null;
-
-    window.addEventListener(m_hasSuit ? "component" : "load",
+    var fn  = null;
+    var evt = m_hasSuit ? "component" : "load";
+    window.addEventListener(evt,
     fn = function lapelOnInit(ev) {
 
         if (m_schedulerId >= 0) window.clearInterval(m_schedulerId);
         m_schedulerId = window.setTimeout(function() { m_lapelBoot(); }, 1);			
         l.push(p_component);
-        window.removeEventListener(fn);
+        window.removeEventListener(evt,fn);
     });		
 
     if(p_component.inner==null) p_component.inner = true;
