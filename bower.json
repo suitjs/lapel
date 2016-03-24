@@ -1,5 +1,5 @@
 {
-  "name": "suitjs/lapel",
+  "name": "suitjs-lapel",
   "homepage": "https://github.com/suitjs/lapel",
   "authors": [
     "Eduardo Dias da Costa <eduardo@thelaborat.org>",
@@ -25,8 +25,8 @@
   "ignore": [	
 	"**/.*",
     "docs/",
-    "haxe",
-    "typescript",	
+    "haxe/",
+    "typescript/",	
 	"node_modules/",
 	"bower_components/",
 	"source/",
@@ -36,6 +36,5 @@
     "*.hxproj"	
   ],
 
-  "license": "MIT",
-  "private": false
+  "license": "MIT"  
 }
