@@ -43,7 +43,7 @@ function assert(v,d,t) { return t==null ? (v==null ? d : v) : ((typeof(v)==t) ? 
 /**
  * Lapel Component Init Callback.
  * @typedef {Object} LapelComponentCallback
- * @property {Element} element - Created DOM Element. Allows to do extra operations using the new created component reference.      
+ * @property {Element|Element[]} element - Created DOM Element. Allows to do extra operations using the new created component reference. If the 'src' of the component is made of several tags an Array is returned.       
  */
 
 /**
