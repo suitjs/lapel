@@ -92,18 +92,27 @@ var Lapel = {};
                     vc.setAttribute(a.name, a.value);
                 }
             }
-            if (c.init != null) c.init(v);
             var is_inner = c.inner == null ? true : c.inner;
-            if (is_inner) return;
+            if (is_inner) {
+                if (c.init != null) c.init(v);
+                return;
+            }
+            var l = [];
             var p = v.parentElement;
             for (var i = 0; i < v.children.length; i++) {
                 var vc = v.children[i];
+                l.push(vc);
                 if (v.nextSibling != null) {
                     p.insertBefore(vc, v);
                 } else {
                     p.appendChild(vc);
                 }
             }
+            if (l.length == 1) {
+                if (c.init != null) c.init(l[0]);
+            } else if (l.length > 1) {
+                if (c.init != null) c.init(l);
+            } else if (c.init != null) c.init();
             if (p != null) p.removeChild(v);
         }, 1);
     };
