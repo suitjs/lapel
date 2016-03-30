@@ -16,6 +16,10 @@ Make your [SuitJS](http://www.suitjs.com) fancier creating custom web components
 #### CDN
 * TBD
 
+#### Build
+* Run `npm run init` once
+* `npm run build`
+
 # Usage
 After adding the script tag, the `Lapel` global variable will be available.  
  
@@ -53,7 +57,7 @@ After initialization.
 ```
 
 # Documentation
-For in depth information of the API, visit the **[documentation](http://www.suitjs.com/docs/lapel/)**. 
+For in depth information of the API, visit the **[documentation](http://www.suitjs.com/docs/)**. 
 
 # Examples
 Usage examples can be found at **[CodePen](http://codepen.io/collection/XOyEpq/)**.
