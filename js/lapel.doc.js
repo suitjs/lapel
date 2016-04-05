@@ -106,9 +106,7 @@ function create(p_tag,p_attribs,p_src) {
  * Register a new component to the component pool.
  * @param  {LapelComponent} p_component - Reference to the Lapel component.
  * @returns {LapelComponent} - Reference to the added component.
- * @example
- * In the page javascript.
- * ```js
+ * @example <caption>Given the script</caption>
  * var c = {
  *  tag: "custom-component",
  *  src: "<div class='custom'></div>",
@@ -118,17 +116,14 @@ function create(p_tag,p_attribs,p_src) {
  *  inner: false
  * };
  * Lapel.add(c);
- * ```
- * The original HTML have the custom tag. 
+ * @example <caption>Add the custom tag in the HTML</caption> 
  * ```html 
  * <custom-component>Original Text</custom-component>
- * ```
- * Then after init.
- * ```html
+ * 
+ * <!-- After Init -->
  * <div class='custom'>I'm Here.</div>
- * ```
- * If `inner` is true, then the result would be.
- * ```html
+ * 
+ * <!-- If `inner` is true, then the result will be. -->
  * <custom-component><div class='custom'>I'm Here.</div></component>
  * ```
  */
