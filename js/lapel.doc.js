@@ -106,11 +106,11 @@ function create(p_tag,p_attribs,p_src) {
  * Register a new component to the component pool.
  * @param  {LapelComponent} p_component - Reference to the Lapel component.
  * @returns {LapelComponent} - Reference to the added component.
- * @example <caption>Given the script</caption>
- * var c = {
+ * @example {@lang js} <caption>Given the script</caption>
+ *  var c = {
  *  tag: "custom-component",
  *  src: "<div class='custom'></div>",
- *  init: function(p_element) {`
+ *  init: function(p_element) {
  *      p_element.textContent = "I'm Here.";
  *  },
  *  inner: false
