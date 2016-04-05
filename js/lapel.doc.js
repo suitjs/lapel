@@ -54,11 +54,11 @@ function assert(v,d,t) { return t==null ? (v==null ? d : v) : ((typeof(v)==t) ? 
  * //Define a simple component. 
  * Lapel.add({
  *  tag: "my-component",
- *  src: "<div class='my-component'></div>"
+ *  src: "&lt;div class='my-component'&gt;&lt;/div&gt;"
  * });
  * 
  * var c = Lapel.find("my-component");
- * console.log(c); //{ tag: 'my-component', src: "<div class='my-component'></div>" }
+ * console.log(c); //{ tag: 'my-component', src: "&lt;div class='my-component'&gt;&lt;/div&gt;" }
  */
 Lapel.find = 
 function find(p_tag) {
